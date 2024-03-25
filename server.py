@@ -33,7 +33,7 @@ while True:
     plateNumberOfRandomCity = plateNumbers[indexOfRandomCity]  # Getting the plate number of the chosen random city
 
     # DEBUG DELETE LATER
-    print(f"Selected city {randomCity}, Plate number of that city is {plateNumberOfRandomCity}")
+    # print(f"Selected city {randomCity}, Plate number of that city is {plateNumberOfRandomCity}")
     # DEBUG DELETE LATER
 
     connectionSocket.send(randomCity.encode())  # Sending the random city to the client
@@ -56,7 +56,7 @@ while True:
                 print("Server waiting for connection...")
                 break
 
-            if not usersGuess.isnumeric() or int(usersGuess) < 1 or int(usersGuess) > 81:  # If client's guess is out of range
+            if int(usersGuess) < 1 or int(usersGuess) > 81:  # If client's guess is out of range
                 connectionSocket.send("NOT_IN_RANGE".encode())  # Send 'NOT_IN_RANGE' to the client
                 currentClientCount += 1  # Increment the client count
                 print(f"Waiting for {currentClientCount}th client connection")
