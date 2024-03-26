@@ -45,7 +45,7 @@ while True:
             Flag = False  # To break the outer while-loop
             break
 
-        print("Received from client: " + str(usersGuess))
+        # print("Received from client: " + str(usersGuess))
 
         if usersGuess != plateNumberOfRandomCity:  # If client's guess is not correct
 
@@ -66,6 +66,8 @@ while True:
             cityNameOfUserGuess = cityNames[int(usersGuess) - 1]  # Getting the name of the city that user guessed (-1 to get the index)
 
             connectionSocket.send(cityNameOfUserGuess.encode())  # Send the user's wrongly guessed plate number's city name to the client
+
+            print("Received from client: " + str(usersGuess))
 
     if not Flag: # If client enters 'END', break the outer while loop to end the server
         break
